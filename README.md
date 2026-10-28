@@ -1,7 +1,7 @@
 # Thrifty Wizard
 
-A static documentation site built with Astro and Starlight. Includes sidebar
-navigation, page tables of contents, search, and light/dark themes.
+A static documentation site for The Thrifty Wizard's Guide, built with Astro
+and Starlight.
 
 ## Development
 
@@ -31,58 +31,21 @@ npm run check         # Run lint and formatting checks
 
 Configure oxlint and oxfmt in `.oxlintrc.json` and `.oxfmtrc.json` respectively.
 
-## Content
+## Contributing
 
-Add Markdown files under `src/content/docs/`. Each file becomes a page, and
-folders become sidebar groups. The homepage is `src/content/docs/index.md`.
+Add or edit guide pages in `src/content/docs/`. Follow the repo-local skills for
+detailed conventions:
 
-Every page needs a title in YAML frontmatter. Use `sidebar.order` when pages
-need a specific reading order:
+- [Site content](.agents/skills/site-content/SKILL.md): frontmatter, headings,
+  links, images, and sidebar ordering.
+- [Site styling](.agents/skills/site-styling/SKILL.md): color roles, typography,
+  and theme CSS.
 
-```md
----
-title: Example page
-description: An optional summary.
-sidebar:
-  order: 2
----
-
-An introductory paragraph.
-
-## A section
-
-Link to [another page](/guides/start-here/) or a
-[section on that page](/guides/start-here/#related-pages).
-```
-
-Use standard Markdown links between any pages, independent of the sidebar. Link
-to published URLs rather than `.md` source paths. Use `##` and `###` headings
-for the automatic page table of contents; Starlight renders the page title as
-`h1`.
-
-Store images in `src/assets/` and reference them with relative Markdown paths so
-Astro can optimize them. For example, from `src/content/docs/guides/example.md`,
-use `![Descriptive alt text](../../../assets/example.png)`. Use `public/` for
-files that should be copied without processing.
+Use conventional commits.
 
 ## Configuration
 
-Edit `astro.config.mjs` to change the placeholder site title. The sidebar
-currently follows the content folders automatically; explicit groups and
-ordering can be configured when the guide structure is ready.
-
-The light and dark palettes are defined in `src/styles/theme.css` and connected
-through Starlight's `customCss` option. This stylesheet maps the design tokens
-to Starlight's colors and controls the wash and haze over the background artwork
-in `src/assets/city-sketch.webp`. Headings use the normal foreground color,
-primary actions use gold, and secondary actions and active navigation use blue.
-Ruby is reserved for attention accents on important components, such as warning
-borders, rather than text.
-
-Headings and the site title use Almendra Regular. Content and navigation use
-Literata, with 18px content text and 1.6 line spacing. Google Fonts loads both
-families through the Starlight `head` configuration, with Georgia and the browser's
-serif font as fallbacks.
+Edit `astro.config.mjs` to change the site title or Starlight settings.
 
 The production URL is `https://thriftywizard.com`. Astro uses this for canonical
 URLs and the generated sitemap. Internal links stay on the current host, so they
