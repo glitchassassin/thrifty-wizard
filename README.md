@@ -58,6 +58,14 @@ Edit `astro.config.mjs` to change the placeholder site title. The sidebar curren
 follows the content folders automatically; explicit groups and ordering can be
 configured when the guide structure is ready.
 
+The light and dark palettes are defined in `src/styles/theme.css` and connected
+through Starlight's `customCss` option. This stylesheet maps the design tokens to
+Starlight's colors and controls the wash and haze over the background artwork in
+`src/assets/city-sketch.webp`.
+Headings use the normal foreground color, primary actions use gold, and secondary
+actions and active navigation use blue. Ruby is reserved for attention accents
+on important components, such as warning borders, rather than text.
+
 The production URL is `https://thriftywizard.com`. Astro uses this for canonical
 URLs and the generated sitemap. Internal links stay on the current host, so they
 also work on preview deployments.
