@@ -1,10 +1,10 @@
 ---
-title: Overview
-description: A guide in progress.
+title: Intro
+description: The Thrifty Wizard's Guide will show you how to build software effectively and economically.
 sidebar:
   order: 1
 ---
 
-Content is being prepared.
+The Thrifty Wizard's Guide will teach you to build software effectively and economically.
 
 [Start here](/guides/start-here/).
