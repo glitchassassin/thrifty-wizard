@@ -58,7 +58,37 @@ Edit `astro.config.mjs` to change the placeholder site title. The sidebar curren
 follows the content folders automatically; explicit groups and ordering can be
 configured when the guide structure is ready.
 
-Set the production `site` URL once a domain is chosen. If hosting under a subpath,
-configure Astro's `base` and update internal links to include it.
+The production URL is `https://thriftywizard.com`. Astro uses this for canonical
+URLs and the generated sitemap. Internal links stay on the current host, so they
+also work on preview deployments.
 
 [Starlight documentation](https://starlight.astro.build/)
+
+## Cloudflare deployment
+
+The site deploys to Cloudflare Workers as static assets from `dist/`.
+`wrangler.jsonc` configures the `thrifty-wizard` Worker, the `thriftywizard.com`
+Custom Domain, the generated 404 page, and support for branch previews.
+
+See [deployment setup](docs/deployment.md) for the Cloudflare account, GitHub
+integration, and PR preview settings.
+
+### Local commands
+
+Build before uploading so the deployment includes the latest content:
+
+```sh
+npm run build
+npm run deploy -- --dry-run  # Validate the deployment without publishing
+```
+
+For an authenticated manual deployment, run `npx wrangler login` once, then build
+and use `npm run deploy` for production or `npm run deploy:preview` from a feature
+branch for its Preview. An explicit Preview name can be passed with
+`npm run deploy:preview -- --name example-pr`.
+
+Local preview of the Cloudflare static asset routing is available after building:
+
+```sh
+npx wrangler dev
+```
