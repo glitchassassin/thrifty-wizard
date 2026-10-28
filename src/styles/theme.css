@@ -1,3 +1,9 @@
+:root {
+  --sl-font: "Literata", Georgia, serif;
+  --font-heading: "Almendra", Georgia, serif;
+  --sl-line-height: 1.6;
+}
+
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -111,6 +117,21 @@ body::after {
       rgba(var(--background-wash-rgb), 0.86) 55%,
       rgba(var(--background-wash-rgb), 0.68)
     );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+.sl-markdown-content {
+  font-size: 1.125rem;
 }
 
 .site-title {

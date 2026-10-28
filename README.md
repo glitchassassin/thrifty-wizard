@@ -79,6 +79,11 @@ primary actions use gold, and secondary actions and active navigation use blue.
 Ruby is reserved for attention accents on important components, such as warning
 borders, rather than text.
 
+Headings and the site title use Almendra Regular. Content and navigation use
+Literata, with 18px content text and 1.6 line spacing. Google Fonts loads both
+families through the Starlight `head` configuration, with Georgia and the browser's
+serif font as fallbacks.
+
 The production URL is `https://thriftywizard.com`. Astro uses this for canonical
 URLs and the generated sitemap. Internal links stay on the current host, so they
 also work on preview deployments.
