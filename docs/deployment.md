@@ -13,16 +13,17 @@ The repository's `wrangler.jsonc` defines the Worker and Custom Domain.
    name so it matches the Wrangler configuration.
 3. Configure Workers Builds with these settings:
 
-   | Setting | Value |
-   | --- | --- |
-   | Root directory | Repository root |
-   | Production branch | `main` |
-   | Build command | `npm run build` |
-   | Deploy command | `npm run deploy` |
-   | Preview command | `npm run deploy:preview` |
+   | Setting           | Value                    |
+   | ----------------- | ------------------------ |
+   | Root directory    | Repository root          |
+   | Production branch | `main`                   |
+   | Build command     | `npm run build`          |
+   | Deploy command    | `npm run deploy`         |
+   | Preview command   | `npm run deploy:preview` |
 
    The committed `.node-version` pins Node.js for the build. Dependencies,
    including the project's Wrangler version, are installed by Workers Builds.
+
 4. Under **Settings > Build > Branch control**, enable **Preview Builds**.
    Pushes to `main` deploy production; pushes to other branches create or update
    that branch's Preview. The GitHub integration posts Preview URLs to associated

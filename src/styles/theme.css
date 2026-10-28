@@ -1,5 +1,5 @@
 :root,
-[data-theme='light'] {
+[data-theme="light"] {
   color-scheme: light;
 
   --background: #f7eff5;
@@ -19,7 +19,7 @@
   --background-haze-opacity: 0.15;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   color-scheme: dark;
 
   --background: #15192e;
@@ -85,7 +85,7 @@ body {
 
 body::before,
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -93,7 +93,7 @@ body::after {
 
 body::before {
   z-index: -2;
-  background: url('../assets/city-sketch.webp') center / cover no-repeat;
+  background: url("../assets/city-sketch.webp") center / cover no-repeat;
   opacity: var(--background-image-opacity);
 }
 
