@@ -138,39 +138,6 @@ h6,
   color: var(--foreground);
 }
 
-.intro {
-  display: flow-root;
-}
-
-.intro-mascot {
-  float: right;
-  width: min(42%, 16rem);
-  margin: 0 0 1.5rem 2rem;
-}
-
-.intro-mascot img {
-  width: 100%;
-  height: auto;
-}
-
-[data-theme="dark"] .intro-mascot img {
-  filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--foreground) 35%, transparent));
-}
-
-@media (max-width: 30rem) {
-  .intro {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .intro-mascot {
-    order: 1;
-    float: none;
-    width: min(70%, 14rem);
-    margin: 1.5rem auto 0;
-  }
-}
-
 /* Gold is reserved for primary actions; secondary actions use blue. */
 .sl-link-button.primary,
 .sl-link-button.primary:hover {

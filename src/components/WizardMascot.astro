@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import wizardGnome from "../assets/wizard-gnome.png";
+---
+
+<Image
+  class="mascot-image"
+  src={wizardGnome}
+  alt="A white-bearded wizard gnome wearing a blue hat and robe patched with gold stars and moons."
+/>
+
+<style>
+  /* Contain the float so pagination stays below the page content. */
+  :global(.sl-markdown-content:has(> .mascot-image)) {
+    display: flow-root;
+  }
+
+  .mascot-image {
+    display: block;
+    float: right;
+    width: min(42%, 16rem);
+    height: auto;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  :global([data-theme="dark"]) .mascot-image {
+    filter: drop-shadow(0 0 1rem color-mix(in srgb, var(--foreground) 35%, transparent));
+  }
+
+  @media (max-width: 30rem) {
+    .mascot-image {
+      margin-left: 1rem;
+    }
+  }
+</style>
