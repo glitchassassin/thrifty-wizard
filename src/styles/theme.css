@@ -17,6 +17,7 @@
   --accent-ruby: #d90a45;
   --accent-blue: #254ce5;
   --accent-gold: #ffc52f;
+  --typography-accent: var(--accent-blue);
   --on-gold: #29223d;
 
   --background-wash-rgb: 247, 239, 245;
@@ -37,6 +38,7 @@
   --accent-ruby: #ff4568;
   --accent-blue: #899fff;
   --accent-gold: #ffcf32;
+  --typography-accent: var(--accent-gold);
   --on-gold: #29223d;
 
   --background-wash-rgb: 21, 25, 46;
@@ -134,11 +136,51 @@ h6,
   font-size: 1.125rem;
 }
 
+.sl-markdown-content blockquote {
+  border-inline-start-color: var(--typography-accent);
+}
+
+.sl-markdown-content li:not(:where(.not-content *))::marker {
+  color: var(--typography-accent);
+}
+
+.sl-markdown-content a:not(:where(.not-content *)) {
+  color: inherit;
+  text-decoration-color: var(--typography-accent);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.15em;
+}
+
+.sl-markdown-content a:hover:not(:where(.not-content *)) {
+  text-decoration-color: var(--foreground);
+}
+
+.sl-markdown-content :is(del, s) {
+  /* An offset underline lets the strike sit below the font's default line-through. */
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent-ruby);
+  text-decoration-thickness: 0.2em;
+  text-decoration-skip-ink: none;
+  text-underline-offset: -0.35em;
+  /* Firefox needs an explicit shadow color when the glyph fill is transparent. */
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 var(--foreground);
+}
+
+/* Keep text visible in modes that suppress text shadows. */
+@media print, (forced-colors: active) {
+  .sl-markdown-content :is(del, s) {
+    -webkit-text-fill-color: currentColor;
+    text-shadow: none;
+    text-decoration-line: line-through;
+  }
+}
+
 .site-title {
   color: var(--foreground);
 }
 
-/* Gold is reserved for primary actions; secondary actions use blue. */
+/* Primary actions use gold; secondary actions use blue. */
 .sl-link-button.primary,
 .sl-link-button.primary:hover {
   background: var(--accent-gold);
