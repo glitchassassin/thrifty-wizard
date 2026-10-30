@@ -1,0 +1,30 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+
+const { entry, id } = Astro.locals.starlightRoute;
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+const issueUrl = new URL("https://github.com/glitchassassin/thrifty-wizard/issues/new");
+
+issueUrl.search = new URLSearchParams({
+  title: `Page issue: ${entry.data.title}`,
+  body: [
+    "## Page details",
+    `Page: ${entry.data.title}`,
+    `URL: ${pageUrl.href}`,
+    `Source: \`${entry.filePath}\``,
+    "",
+    "## What's wrong?",
+    "Describe the problem. Content unclear? Missing important context? Inaccurate or dead citations?",
+    "",
+    "## Suggested correction",
+    "Optional: How would you fix it?",
+  ].join("\n"),
+}).toString();
+---
+
+{id !== "404" && (
+  <a href={issueUrl.href} class="report-issue sl-flex print:hidden">
+    <Icon name="github" size="1.2em" />
+    Report an issue
+  </a>
+)}

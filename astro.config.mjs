@@ -10,6 +10,9 @@ export default defineConfig({
     starlight({
       title: "The Thrifty Wizard's Guide",
       customCss: ["./src/styles/theme.css"],
+      components: {
+        EditLink: "./src/components/ReportIssue.astro",
+      },
       head: [
         { tag: "link", attrs: { rel: "preconnect", href: "https://fonts.googleapis.com" } },
         {

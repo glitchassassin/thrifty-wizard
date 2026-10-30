@@ -199,6 +199,17 @@ h6,
   color: var(--accent-blue);
 }
 
+.report-issue {
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.report-issue:hover {
+  text-decoration: underline;
+}
+
 ::selection {
   background: var(--sl-color-accent-low);
   color: var(--foreground);
